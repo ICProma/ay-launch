@@ -6,14 +6,16 @@
 <title>Academic Year Launch — Operational Checklist</title>
 <style>
   :root{
-    --bg:#0f1419; --panel:#171d26; --panel2:#1e2632; --line:#2a3340;
-    --txt:#e7edf3; --muted:#93a1b1; --accent:#4f8cff; --accent2:#7c5cff;
-    --green:#34d399; --amber:#fbbf24; --red:#f87171;
-    --acorn:#4f8cff; --sis:#34d399; --sfis:#fbbf24;
+    /* Ingenium-inspired institutional palette: deep navy + green accent, light ground */
+    --bg:#eef2f7; --panel:#ffffff; --panel2:#f2f6fb; --line:#d7e0ea;
+    --txt:#0f2745; --muted:#5f7186; --accent:#123a6b; --accent2:#1f9d63;
+    --green:#1f9d63; --amber:#d99a2b; --red:#d64545;
+    --acorn:#123a6b; --sis:#1f9d63; --sfis:#d99a2b;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,#121821,#121821ee);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:18px 24px}
+  header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,#ffffff,#ffffffee);backdrop-filter:blur(6px);border-bottom:2px solid var(--accent);padding:18px 24px}
+  h1{color:var(--accent)}
   .titlerow{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
   h1{font-size:19px;margin:0;font-weight:650;letter-spacing:.2px}
   .sub{color:var(--muted);font-size:13px;margin-top:2px}
@@ -22,9 +24,9 @@
   select:focus,input:focus{outline:none;border-color:var(--accent)}
   [contenteditable]{outline:none;border-radius:6px}
   [contenteditable]:hover{box-shadow:inset 0 0 0 1px var(--line)}
-  [contenteditable]:focus{box-shadow:inset 0 0 0 1.5px var(--accent);background:#0c1117}
-  [contenteditable]:empty:before{content:attr(data-ph);color:#5b6b7c}
-  .bar{height:9px;background:#232c38;border-radius:99px;overflow:hidden;margin-top:10px}
+  [contenteditable]:focus{box-shadow:inset 0 0 0 1.5px var(--accent);background:#eaf1fb}
+  [contenteditable]:empty:before{content:attr(data-ph);color:#9aa8b6}
+  .bar{height:9px;background:#dde5ef;border-radius:99px;overflow:hidden;margin-top:10px}
   .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .35s ease}
   .progressrow{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;align-items:center}
   .pill{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
@@ -57,7 +59,7 @@
   .school .sdot{width:9px;height:9px;border-radius:99px;flex:none}
   .school input{appearance:none;width:18px;height:18px;border:1.6px solid var(--line);border-radius:5px;cursor:pointer;position:relative;margin-left:auto;flex:none;background:var(--bg)}
   .school input:checked{background:var(--green);border-color:var(--green)}
-  .school input:checked::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #0f1419;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+  .school input:checked::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #ffffff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
   .school .nm{font-weight:500}
   .num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none;margin-top:2px}
   .del{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:6px;width:24px;height:24px;cursor:pointer;flex:none;line-height:1;font-size:15px}
@@ -73,15 +75,15 @@
   .gtable{min-width:760px}
   .gmonths{position:relative;height:26px;border-bottom:1px solid var(--line);margin-left:var(--lab);}
   .gmonth{position:absolute;top:0;height:26px;border-left:1px solid var(--line);padding:5px 6px;font-size:11px;color:var(--muted);white-space:nowrap}
-  .gcat{display:flex;align-items:center;height:30px;padding-left:14px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);background:#131a23;border-top:1px solid var(--line)}
-  .grow{position:relative;display:grid;grid-template-columns:var(--lab) 1fr;align-items:center;height:34px;border-top:1px solid #202833}
-  .grow:hover{background:#141b24}
+  .gcat{display:flex;align-items:center;height:30px;padding-left:14px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);font-weight:700;background:#e7eef7;border-top:1px solid var(--line)}
+  .grow{position:relative;display:grid;grid-template-columns:var(--lab) 1fr;align-items:center;height:34px;border-top:1px solid #eaeff5}
+  .grow:hover{background:#f5f8fc}
   .glabel{padding:0 10px;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:7px}
   .glabel .num{margin-top:0;width:20px;height:20px}
   .gtrack{position:relative;height:34px}
-  .gbar{position:absolute;top:7px;height:20px;border-radius:6px;overflow:hidden;min-width:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);cursor:default}
-  .gfill{position:absolute;left:0;top:0;bottom:0;background:rgba(255,255,255,.85);mix-blend-mode:overlay}
-  .gbar .lbl{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:10px;color:#0d1117;font-weight:700;white-space:nowrap}
+  .gbar{position:absolute;top:7px;height:20px;border-radius:6px;overflow:hidden;min-width:5px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);cursor:default}
+  .gfill{position:absolute;left:0;top:0;bottom:0;background:rgba(0,0,0,.30);mix-blend-mode:multiply}
+  .gbar .lbl{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:10px;color:#ffffff;font-weight:700;white-space:nowrap;text-shadow:0 1px 1px rgba(0,0,0,.35)}
   .gtoday{position:absolute;top:0;bottom:0;width:2px;background:var(--red);z-index:5}
   .gtoday:after{content:"today";position:absolute;top:-22px;left:-16px;font-size:10px;color:var(--red)}
   .glegend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--muted);align-items:center}
@@ -143,11 +145,11 @@
 
 <script>
 const SCHOOLS = [
-  {id:"acorn", name:"Acorn", color:"#4f8cff"},
-  {id:"sis",   name:"Smiling / SIS", color:"#34d399"},
-  {id:"sfis",  name:"Saint Francis / SFIS", color:"#fbbf24"},
+  {id:"acorn", name:"Acorn", color:"#123a6b"},
+  {id:"sis",   name:"Smiling / SIS", color:"#1f9d63"},
+  {id:"sfis",  name:"Saint Francis / SFIS", color:"#d99a2b"},
 ];
-const CAT_COLORS = ["#4f8cff","#7c5cff","#f472b6","#34d399","#fbbf24","#22d3ee","#f87171"];
+const CAT_COLORS = ["#123a6b","#1f9d63","#2f7ab5","#7a5ea8","#d99a2b","#0f6b6b","#b0483a","#c05a92"];
 const BASE_YEAR = 2026; // planned dates below are anchored to AY 2026/27
 
 // [title, desc, start, due]  (dates planned around a ~14 Sep 2026 first day)
