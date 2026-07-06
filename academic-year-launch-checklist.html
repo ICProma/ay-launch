@@ -36,6 +36,9 @@
   .btn{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:7px 13px;font:inherit;font-size:13px;cursor:pointer}
   .btn:hover{border-color:var(--accent)}
   .btn.ghost{background:transparent}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+  .btn.primary:hover{filter:brightness(1.1)}
+  .btn.primary.saved{background:var(--green);border-color:var(--green)}
   main{padding:12px 24px 80px;max-width:1400px;margin:0 auto}
   .ghint{color:var(--muted);font-size:12.5px;margin:2px 0 12px}
   .gscroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
@@ -122,6 +125,7 @@
     <option value="open">Solo aperte</option>
     <option value="done">Solo completate</option>
   </select>
+  <button class="btn primary" id="saveBtn">Salva</button>
   <button class="btn ghost" id="exportBtn">Esporta / condividi</button>
   <button class="btn ghost" id="importBtn">Importa</button>
   <input type="file" id="importFile" accept="application/json" class="hidden" style="display:none" />
@@ -434,6 +438,18 @@ board.addEventListener("click", e=>{
 aySel.addEventListener("change", ()=>{ loadProg(); setFirstDayDefault(); render(); });
 firstDayInput.addEventListener("change", ()=>{ PROG.__firstDay=firstDayInput.value; saveProg(); render(); });
 
+const saveBtn=document.getElementById("saveBtn");
+function doSave(){
+  if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  saveTpl(); saveProg();
+  saveBtn.textContent="Salvato ✓"; saveBtn.classList.add("saved");
+  clearTimeout(saveBtn._t);
+  saveBtn._t=setTimeout(()=>{ saveBtn.textContent="Salva"; saveBtn.classList.remove("saved"); },1500);
+}
+saveBtn.addEventListener("click", doSave);
+document.addEventListener("keydown", e=>{
+  if((e.ctrlKey||e.metaKey) && (e.key==="s"||e.key==="S")){ e.preventDefault(); doSave(); }
+});
 document.getElementById("exportBtn").addEventListener("click", ()=>{
   const data=JSON.stringify({type:"ay-launch",ay:aySel.value,template:TPL,progress:PROG},null,2);
   const blob=new Blob([data],{type:"application/json"}); const a=document.createElement("a");
