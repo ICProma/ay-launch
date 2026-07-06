@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Academic Year Launch — Operational Checklist</title>
+<title>Avvio Anno Scolastico — Cronoprogramma Operativo</title>
 <style>
   :root{
-    /* Ingenium-inspired institutional palette: deep navy + green accent, light ground */
+    /* Palette istituzionale ispirata a Ingenium: navy profondo + accento verde, sfondo chiaro */
     --bg:#eef2f7; --panel:#ffffff; --panel2:#f2f6fb; --line:#d7e0ea;
     --txt:#0f2745; --muted:#5f7186; --accent:#123a6b; --accent2:#1f9d63;
     --green:#1f9d63; --amber:#d99a2b; --red:#d64545;
@@ -15,9 +15,8 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
   header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,#ffffff,#ffffffee);backdrop-filter:blur(6px);border-bottom:2px solid var(--accent);padding:18px 24px}
-  h1{color:var(--accent)}
   .titlerow{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-  h1{font-size:19px;margin:0;font-weight:650;letter-spacing:.2px}
+  h1{color:var(--accent);font-size:19px;margin:0;font-weight:650;letter-spacing:.2px}
   .sub{color:var(--muted);font-size:13px;margin-top:2px}
   .ay{margin-left:auto;display:flex;align-items:center;gap:8px}
   select,input[type=text],input[type=date]{background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font:inherit;font-size:13px}
@@ -37,76 +36,73 @@
   .btn{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:7px 13px;font:inherit;font-size:13px;cursor:pointer}
   .btn:hover{border-color:var(--accent)}
   .btn.ghost{background:transparent}
-  .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  .seg button{background:transparent;border:0;color:var(--muted);padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
-  .seg button.active{background:var(--accent);color:#fff}
-  main{padding:8px 24px 80px;max-width:1180px;margin:0 auto}
-  .cat{margin-top:26px}
-  .cathead{display:flex;align-items:center;gap:10px;margin:0 0 10px}
-  .cathead h2{font-size:13px;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);margin:0;font-weight:600;padding:2px 6px}
-  .task{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;display:grid;grid-template-columns:1fr 280px;gap:14px;align-items:start;position:relative}
-  .task.done{opacity:.55}
-  .tk-main{min-width:0}
-  .tk-titlewrap{display:flex;align-items:flex-start;gap:8px}
-  .tk-title{font-weight:600;font-size:15px;flex:1;padding:2px 6px}
-  .tk-desc{color:var(--muted);font-size:13px;margin-top:4px;padding:3px 6px}
-  .meta{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center}
-  .meta label{font-size:11px;color:var(--muted);margin-right:-4px}
-  .meta input[type=text]{width:120px}
-  .schools{display:flex;flex-direction:column;gap:8px}
-  .school{display:flex;align-items:center;gap:9px;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:7px 11px;cursor:pointer;user-select:none;font-size:13.5px}
-  .school:hover{border-color:var(--accent)}
-  .school .sdot{width:9px;height:9px;border-radius:99px;flex:none}
-  .school input{appearance:none;width:18px;height:18px;border:1.6px solid var(--line);border-radius:5px;cursor:pointer;position:relative;margin-left:auto;flex:none;background:var(--bg)}
-  .school input:checked{background:var(--green);border-color:var(--green)}
-  .school input:checked::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid #ffffff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
-  .school .nm{font-weight:500}
-  .num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none;margin-top:2px}
-  .del{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:6px;width:24px;height:24px;cursor:pointer;flex:none;line-height:1;font-size:15px}
-  .del:hover{border-color:var(--red);color:var(--red)}
-  .addtask{background:transparent;border:1px dashed var(--line);color:var(--muted);border-radius:10px;padding:9px 13px;font:inherit;font-size:13px;cursor:pointer;width:100%}
-  .addtask:hover{border-color:var(--accent);color:var(--txt)}
-  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
-  .hidden{display:none !important}
-  /* Gantt */
-  #gantt{margin-top:14px}
-  .ghint{color:var(--muted);font-size:12.5px;margin:0 0 10px}
+  main{padding:12px 24px 80px;max-width:1400px;margin:0 auto}
+  .ghint{color:var(--muted);font-size:12.5px;margin:2px 0 12px}
   .gscroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
-  .gtable{min-width:760px}
-  .gmonths{position:relative;height:26px;border-bottom:1px solid var(--line);margin-left:var(--lab);}
-  .gmonth{position:absolute;top:0;height:26px;border-left:1px solid var(--line);padding:5px 6px;font-size:11px;color:var(--muted);white-space:nowrap}
-  .gcat{display:flex;align-items:center;height:30px;padding-left:14px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);font-weight:700;background:#e7eef7;border-top:1px solid var(--line)}
-  .grow{position:relative;display:grid;grid-template-columns:var(--lab) 1fr;align-items:center;height:34px;border-top:1px solid #eaeff5}
-  .grow:hover{background:#f5f8fc}
-  .glabel{padding:0 10px;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:7px}
-  .glabel .num{margin-top:0;width:20px;height:20px}
-  .gtrack{position:relative;height:34px}
-  .gbar{position:absolute;top:7px;height:20px;border-radius:6px;overflow:hidden;min-width:5px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);cursor:default}
+  .gtable{min-width:1120px;position:relative}
+  .gmonths{position:relative;height:22px;border-bottom:1px solid var(--line);margin-left:var(--lab)}
+  .gmonth{position:absolute;top:0;height:22px;border-left:1px solid var(--line);padding:4px 5px;font-size:10px;color:var(--muted);white-space:nowrap}
+  .gcat{display:flex;align-items:center;height:24px;padding-left:12px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);font-weight:700;background:#e7eef7;border-top:1px solid var(--line)}
+  .grow{position:relative;display:grid;grid-template-columns:var(--lab) 1fr;align-items:stretch;border-top:1px solid #eaeff5}
+  .grow:hover{background:#f7fafd}
+  .grow.done{opacity:.62}
+  .gleft{padding:6px 9px;border-right:1px solid var(--line);min-width:0}
+  .tk-titlewrap{display:flex;align-items:flex-start;gap:6px}
+  .tk-title{font-weight:600;font-size:12.5px;flex:1;padding:0 4px;line-height:1.25}
+  .tk-desc{color:var(--muted);font-size:10.5px;margin-top:1px;padding:1px 4px;line-height:1.3}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;background:var(--panel2);border:1px solid var(--line);border-radius:5px;font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none;margin-top:0}
+  .del{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:5px;width:18px;height:18px;cursor:pointer;flex:none;line-height:1;font-size:12px;padding:0}
+  .del:hover{border-color:var(--red);color:var(--red)}
+  .rowmeta{display:flex;flex-wrap:wrap;gap:4px 7px;align-items:center;margin-top:5px}
+  .chips{display:flex;gap:4px;flex-wrap:wrap}
+  .chip{display:inline-flex;align-items:center;gap:4px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:1px 5px;cursor:pointer;user-select:none;font-size:10.5px}
+  .chip:hover{border-color:var(--accent)}
+  .chip .sdot{width:7px;height:7px;border-radius:99px;flex:none}
+  .chip input{appearance:none;width:13px;height:13px;border:1.4px solid var(--line);border-radius:3px;cursor:pointer;position:relative;flex:none;background:#fff}
+  .chip input:checked{background:var(--green);border-color:var(--green)}
+  .chip input:checked::after{content:"";position:absolute;left:3.5px;top:0.5px;width:3.5px;height:7px;border:solid #fff;border-width:0 1.8px 1.8px 0;transform:rotate(45deg)}
+  .fields{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+  .fields label{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  .fields input[type=text]{width:82px;padding:3px 6px;font-size:11px}
+  .fields input[type=date]{padding:3px 5px;font-size:11px}
+  .gtrack{position:relative;min-height:100%}
+  .gbar{position:absolute;top:50%;transform:translateY(-50%);height:16px;border-radius:5px;overflow:hidden;min-width:6px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);cursor:default}
   .gfill{position:absolute;left:0;top:0;bottom:0;background:rgba(0,0,0,.30);mix-blend-mode:multiply}
-  .gbar .lbl{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:10px;color:#ffffff;font-weight:700;white-space:nowrap;text-shadow:0 1px 1px rgba(0,0,0,.35)}
+  .gbar .lbl{position:absolute;right:5px;top:50%;transform:translateY(-50%);font-size:9px;color:#fff;font-weight:700;white-space:nowrap;text-shadow:0 1px 1px rgba(0,0,0,.35)}
   .gtoday{position:absolute;top:0;bottom:0;width:2px;background:var(--red);z-index:5}
-  .gtoday:after{content:"today";position:absolute;top:-22px;left:-16px;font-size:10px;color:var(--red)}
-  .glegend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--muted);align-items:center}
-  @media(max-width:720px){.task{grid-template-columns:1fr}.ay{margin-left:0;width:100%}}
+  .gtoday:after{content:"oggi";position:absolute;top:-2px;left:-14px;font-size:9px;color:var(--red);background:var(--panel);padding:0 2px}
+  .addtask{background:transparent;border:1px dashed var(--line);color:var(--muted);border-radius:7px;padding:5px 10px;font:inherit;font-size:11.5px;cursor:pointer;margin:5px 0 0 12px}
+  .addtask:hover{border-color:var(--accent);color:var(--txt)}
+  .glegend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--muted);align-items:center}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+  @media(max-width:820px){
+    .gtable{min-width:0}
+    .gmonths{margin-left:0}
+    .grow{grid-template-columns:1fr}
+    .gleft{border-right:0;border-bottom:1px solid var(--line)}
+    .gtrack{min-height:46px}
+    .gtoday{display:none}
+    .ay{margin-left:0;width:100%}
+  }
 </style>
 </head>
 <body>
 <header>
   <div class="titlerow">
     <div style="flex:1;min-width:200px">
-      <h1 id="pageTitle" contenteditable="true" spellcheck="false" data-ph="Untitled checklist">Academic Year Launch — Operational Checklist</h1>
-      <div class="sub">Standardized launch tasks · Acorn · Smiling (SIS) · Saint Francis (SFIS) · <span style="color:#6c7a89">click any title or task to edit</span></div>
+      <h1 id="pageTitle" contenteditable="true" spellcheck="false" data-ph="Cronoprogramma senza titolo">Avvio Anno Scolastico — Cronoprogramma Operativo</h1>
+      <div class="sub">Attività di avvio standardizzate · Acorn · Smiling (SIS) · Saint Francis (SFIS) · <span style="color:#6c7a89">clicca un titolo, una descrizione o una data per modificarli</span></div>
     </div>
     <div class="ay">
-      <label class="sub" for="firstDay">First day</label>
+      <label class="sub" for="firstDay">Primo giorno</label>
       <input type="date" id="firstDay" />
-      <label class="sub" for="ay">AY</label>
+      <label class="sub" for="ay">AS</label>
       <select id="ay"></select>
     </div>
   </div>
   <div class="bar"><i id="ovbar"></i></div>
   <div class="progressrow">
-    <div class="pill"><span class="stat" id="ovpct">0%</span> overall · <span class="stat" id="ovcount">0/0</span> ticks</div>
+    <div class="pill"><span class="stat" id="ovpct">0%</span> complessivo · <span class="stat" id="ovcount">0/0</span> spunte</div>
     <div class="pill"><span class="dot" style="background:var(--acorn)"></span> Acorn <span class="stat" id="p-acorn">0%</span></div>
     <div class="pill"><span class="dot" style="background:var(--sis)"></span> Smiling/SIS <span class="stat" id="p-sis">0%</span></div>
     <div class="pill"><span class="dot" style="background:var(--sfis)"></span> Saint Francis/SFIS <span class="stat" id="p-sfis">0%</span></div>
@@ -114,106 +110,127 @@
 </header>
 
 <div class="controls">
-  <div class="seg" id="viewSeg">
-    <button data-view="list" class="active">List</button>
-    <button data-view="gantt">Timeline</button>
-  </div>
-  <input class="grow" type="text" id="search" placeholder="Search tasks…" />
+  <input class="grow" type="text" id="search" placeholder="Cerca attività…" />
   <select id="fSchool">
-    <option value="">All schools</option>
+    <option value="">Tutte le scuole</option>
     <option value="acorn">Acorn</option>
     <option value="sis">Smiling / SIS</option>
     <option value="sfis">Saint Francis / SFIS</option>
   </select>
   <select id="fStatus">
-    <option value="">All statuses</option>
-    <option value="open">Open only</option>
-    <option value="done">Completed only</option>
+    <option value="">Tutti gli stati</option>
+    <option value="open">Solo aperte</option>
+    <option value="done">Solo completate</option>
   </select>
-  <button class="btn ghost" id="exportBtn">Export / share</button>
-  <button class="btn ghost" id="importBtn">Import</button>
-  <input type="file" id="importFile" accept="application/json" class="hidden" />
-  <button class="btn ghost" id="resetBtn">Reset progress</button>
-  <button class="btn ghost" id="restoreBtn">Restore defaults</button>
+  <button class="btn ghost" id="exportBtn">Esporta / condividi</button>
+  <button class="btn ghost" id="importBtn">Importa</button>
+  <input type="file" id="importFile" accept="application/json" class="hidden" style="display:none" />
 </div>
 
 <main>
-  <div id="list"></div>
-  <div id="gantt" class="hidden"></div>
+  <p class="ghint" id="hint"></p>
+  <div id="board"></div>
+  <div class="glegend" id="legend"></div>
 </main>
-<footer>Dates are inferred from the first day of school and auto-shift with the AY — edit any Start/Due, the first-day anchor, or the tasks themselves. <b>Export / share</b> bundles edits + dates + progress for your team.</footer>
+<footer>Vista unica cronoprogramma: spunta le scuole, assegna il responsabile e modifica Inizio/Scadenza — le barre si aggiornano da sole. <b>Esporta / condividi</b> raccoglie modifiche + date + progressi per il team.</footer>
 
 <script>
 const SCHOOLS = [
-  {id:"acorn", name:"Acorn", color:"#123a6b"},
-  {id:"sis",   name:"Smiling / SIS", color:"#1f9d63"},
-  {id:"sfis",  name:"Saint Francis / SFIS", color:"#d99a2b"},
+  {id:"acorn", name:"Acorn", short:"Acorn", color:"#123a6b"},
+  {id:"sis",   name:"Smiling / SIS", short:"SIS", color:"#1f9d63"},
+  {id:"sfis",  name:"Saint Francis / SFIS", short:"SFIS", color:"#d99a2b"},
 ];
 const CAT_COLORS = ["#123a6b","#1f9d63","#2f7ab5","#7a5ea8","#d99a2b","#0f6b6b","#b0483a","#c05a92"];
-const BASE_YEAR = 2026; // planned dates below are anchored to AY 2026/27
+const BASE_YEAR = 2026; // le date pianificate sotto sono ancorate all'AS 2026/27
 
-// [title, desc, start, due]  (dates planned around a ~14 Sep 2026 first day)
+// [titolo, descrizione, inizio, scadenza]  (date pianificate intorno a un primo giorno ~14 set 2026)
 const DEFAULT_CATS = [
-  ["Admissions & Enrollment", [
-    ["Confirm re-enrollment for returning students","Finalize re-enrollment per grade. Lock class structures, flag full classes, open waitlists where needed.","2026-03-02","2026-05-29"],
-    ["Process new student enrollments","Issue offers, collect signed contracts, confirm registration. A place is confirmed only once registration fee + first installment are paid.","2026-03-02","2026-09-04"],
-    ["Schedule and run admissions entry tests","Set entry/assessment dates per grade, book rooms and Meet links, assign invigilators (vigilanza), and add dates to the school calendar.","2026-04-06","2026-06-26"],
-    ["Plan open days and admissions events","Schedule MS/HS and EY/Primary open days; arrange supervision, refreshments, coverage; prepare standard post-event follow-up emails.","2026-03-16","2026-06-12"],
-    ["Send School Year Planning & Enrolment Update","Issue the bilingual (IT/EN) communication on final-stage prep: class structures, staffing, key dates, enrollment deadlines, clear call to action.","2026-05-18","2026-06-12"],
-    ["Verify admissions CRM and inquiry forms","Confirm CRM and web inquiry forms (incl. third-party sources) capture every lead end-to-end. Test submissions and reconcile any missed inquiries.","2026-03-02","2026-04-17"],
-    ["Engage parent representatives & lead-gen channels","Brief class/parent reps (scope, do's/don'ts on old issues) and refresh website, newsletter signup pages, and lead capture into the CRM.","2026-04-01","2026-09-04"],
+  ["Ammissioni e Iscrizioni", [
+    ["Confermare le ri-iscrizioni degli studenti che rientrano","Finalizzare le ri-iscrizioni per ogni classe. Definire la composizione delle classi, segnalare le classi al completo, aprire le liste d'attesa dove necessario.","2026-03-02","2026-05-29"],
+    ["Gestire le nuove iscrizioni","Inviare le offerte, raccogliere i contratti firmati, confermare l'iscrizione. Il posto è confermato solo dopo il pagamento della quota d'iscrizione e della prima rata.","2026-03-02","2026-09-04"],
+    ["Programmare e svolgere i test d'ingresso","Fissare le date dei test/valutazioni per ogni classe, prenotare aule e link Meet, assegnare i sorveglianti (vigilanza) e inserire le date nel calendario scolastico.","2026-04-06","2026-06-26"],
+    ["Pianificare open day ed eventi di ammissione","Programmare gli open day per MS/HS e EY/Primaria; organizzare sorveglianza, rinfreschi e copertura del personale; preparare le email standard di follow-up post-evento.","2026-03-16","2026-06-12"],
+    ["Inviare la comunicazione di pianificazione e aggiornamento iscrizioni","Inviare la comunicazione bilingue (IT/EN) sulla fase finale di preparazione: composizione classi, personale, date chiave, scadenze d'iscrizione, con chiara call to action.","2026-05-18","2026-06-12"],
+    ["Verificare CRM ammissioni e moduli di richiesta","Verificare che CRM e moduli web (incluse fonti di terze parti) raccolgano ogni lead end-to-end. Testare gli invii e recuperare eventuali richieste perse.","2026-03-02","2026-04-17"],
+    ["Coinvolgere i rappresentanti dei genitori e i canali lead-gen","Istruire i rappresentanti di classe/genitori (ambito, cose da fare/evitare su questioni pregresse) e aggiornare sito, pagine di iscrizione newsletter e raccolta lead nel CRM.","2026-04-01","2026-09-04"],
   ]],
-  ["Fees & Finance", [
-    ["Publish fee schedule and confirm payment plans","Finalize and send the fees & services document (rette). Confirm installments, deadlines, reserved arrangements, and policy for deferred/at-risk payments.","2026-03-02","2026-04-30"],
-    ["Finalize and communicate scholarships","Confirm scholarship (borse di studio) criteria, select winners, send award communications; hold a consistent line on reconsideration requests.","2026-04-15","2026-06-30"],
-    ["Collect outstanding fees & set certificate policy","Clear prior-year unpaid quotes (insoluti) before opening. Set/communicate policy on withholding certificates (attestati) and confirming places against contract + payment.","2026-06-01","2026-08-31"],
-    ["Set academic-year budget","Build the budget covering staffing, trips, services, materials with explicit margin targets. Price trips/events against budget, not ad hoc.","2026-02-16","2026-04-15"],
-    ["Complete fiscal year-end close & statutory filings","Close the financial year (year-end 31 Aug): bilancio, depreciation/ammortamenti, TFR, asset register, statutory filings (e.g., 770) with the accounting firm.","2026-09-01","2026-10-30"],
+  ["Rette e Finanza", [
+    ["Pubblicare il listino rette e confermare i piani di pagamento","Finalizzare e inviare il documento rette e servizi. Confermare rate, scadenze, condizioni riservate e la policy per pagamenti differiti/a rischio.","2026-03-02","2026-04-30"],
+    ["Finalizzare e comunicare le borse di studio","Confermare i criteri delle borse di studio, selezionare i vincitori, inviare le comunicazioni di assegnazione; mantenere una linea coerente sulle richieste di riesame.","2026-04-15","2026-06-30"],
+    ["Recuperare le rette insolute e definire la policy sui certificati","Saldare gli insoluti dell'anno precedente prima dell'apertura. Definire/comunicare la policy sul rilascio dei certificati (attestati) e sulla conferma dei posti a fronte di contratto e pagamento.","2026-06-01","2026-08-31"],
+    ["Definire il budget dell'anno scolastico","Costruire il budget che copre personale, gite, servizi e materiali con obiettivi di margine espliciti. Prezzare gite/eventi sul budget, non ad hoc.","2026-02-16","2026-04-15"],
+    ["Completare la chiusura d'esercizio e gli adempimenti fiscali","Chiudere l'esercizio (chiusura al 31 ago): bilancio, ammortamenti, TFR, registro cespiti, adempimenti (es. 770) con lo studio commercialista.","2026-09-01","2026-10-30"],
   ]],
-  ["Staffing & HR", [
-    ["Finalize teaching staff roster and close open roles","Confirm full roster per school and close vacancies (e.g., Biology IB, MYP positions). Screen CVs, run interviews, issue contracts.","2026-03-02","2026-07-15"],
-    ["Confirm coordinator roles & document in action plan","Confirm PYP/MYP/DP coordinator assignments and document responsibilities (and role separations) in the IB action plan, per consultant guidance.","2026-04-01","2026-06-30"],
-    ["Resolve staff authorizations and onboarding","Clear dual-employment / secondary teaching approvals. Onboard new staff: contracts, accounts, induction, safeguarding.","2026-07-01","2026-09-10"],
-    ["Issue staffing & organizational announcements","Communicate new staff, coordinator roles, and structure changes to families ahead of start — consistent tone across schools, aligned with legal/strategic positioning.","2026-08-17","2026-09-11"],
+  ["Personale e HR", [
+    ["Finalizzare l'organico docenti e chiudere le posizioni aperte","Confermare l'organico completo per scuola e chiudere le posizioni vacanti (es. Biologia IB, ruoli MYP). Screening CV, colloqui, firma contratti.","2026-03-02","2026-07-15"],
+    ["Confermare i ruoli di coordinamento e documentarli nell'action plan","Confermare gli incarichi di coordinatore PYP/MYP/DP e documentare responsabilità (e separazioni di ruolo) nell'action plan IB, secondo le indicazioni del consulente.","2026-04-01","2026-06-30"],
+    ["Risolvere le autorizzazioni del personale e l'onboarding","Sbloccare le autorizzazioni per doppio impiego/incarichi secondari. Onboarding nuovo personale: contratti, account, induction, safeguarding.","2026-07-01","2026-09-10"],
+    ["Diffondere gli annunci su personale e organizzazione","Comunicare alle famiglie nuovo personale, ruoli di coordinamento e cambiamenti organizzativi prima dell'avvio, con tono coerente tra le scuole e allineato al posizionamento legale/strategico.","2026-08-17","2026-09-11"],
   ]],
-  ["Academic Programme", [
-    ["Finalize curriculum pathways and cohort plans","Confirm pathways (pre-IB / IB / MYP) and cohort plans per grade, incl. transition cohorts. Communicate early enough to retain families.","2026-03-02","2026-05-29"],
-    ["Produce / update programme handbook and guide","Finalize handbook & guide: pathways up front with strong graphics, programme structure, named clubs/extracurriculars. Publish online and to relevant year groups.","2026-04-01","2026-06-30"],
-    ["Confirm IB/MYP authorization compliance items","Track and close authorization action-plan items and consultant follow-ups; no external authority contact without clear central guidance.","2026-04-01","2026-07-31"],
-    ["Procure and renew software licenses","Renew/procure platforms (e.g., Unifrog for university guidance, LMS/CRM, assessment tools). Lock multi-year pricing where per-student cost is high; trial first.","2026-06-01","2026-08-31"],
-    ["Track graduating students' university outcomes","Follow each graduating student individually through applications and acceptances; capture final destinations for reputation/marketing and pathways.","2026-05-01","2026-09-30"],
+  ["Programma Accademico", [
+    ["Finalizzare i pathway curricolari e i piani di coorte","Confermare i pathway (pre-IB / IB / MYP) e i piani di coorte per classe, incluse le coorti di transizione. Comunicare con anticipo per trattenere le famiglie.","2026-03-02","2026-05-29"],
+    ["Produrre/aggiornare l'handbook e la guida del programma","Finalizzare handbook e guida: pathway in apertura con grafica efficace, struttura del programma, club/attività extra nominati. Pubblicare online e alle classi interessate.","2026-04-01","2026-06-30"],
+    ["Chiudere gli adempimenti di autorizzazione IB/MYP","Monitorare e chiudere le voci dell'action plan di autorizzazione e i follow-up del consulente; nessun contatto con le autorità esterne senza chiara guida centrale.","2026-04-01","2026-07-31"],
+    ["Acquistare e rinnovare le licenze software","Rinnovare/acquistare le piattaforme (es. Unifrog per l'orientamento universitario, LMS/CRM, strumenti di valutazione). Bloccare prezzi pluriennali dove il costo per studente è alto; provare prima.","2026-06-01","2026-08-31"],
+    ["Monitorare gli esiti universitari dei diplomandi","Seguire individualmente ogni diplomando in domande e ammissioni; registrare le destinazioni finali per reputazione/marketing e pathway.","2026-05-01","2026-09-30"],
   ]],
-  ["Calendar & Operations", [
-    ["Publish academic calendar","Finalize and publish term dates, holidays, exam windows, and key parent events. Align across schools where possible.","2026-05-01","2026-06-30"],
-    ["Plan trips/residentials and open registration","Plan trips (e.g., Lake Bolsena residential) with pricing set against budget, clear deadlines, adequate parent notice, and a process to add new joiners.","2026-05-15","2026-09-04"],
-    ["Confirm operational logistics","Lock timetable, facilities, uniforms, and teaching materials/books for start of year. Confirm capacity and supplier arrangements.","2026-06-15","2026-09-11"],
-    ["Set up school bus / transport service","Confirm routes, capacity, pricing; publish payment schedule and first-installment deadline; reconcile actual buses used vs. contractor order (RDA).","2026-06-15","2026-09-11"],
-    ["Set up canteen / meal service","Confirm caterer, menus, and canteen (mensa) fees; set payment terms; handle special cases (own meals / exemptions) consistently with contracts.","2026-06-15","2026-09-11"],
-    ["Confirm after-school, camps and clubs delivery","Before publishing any activity (after-school, autumn/holiday camps, clubs), confirm staff coverage and economics so every advertised item is deliverable.","2026-07-01","2026-09-18"],
-    ["Set up parent portal and communication tools","Ready the parent portal and journal: activity/photo folders (gdrive), teacher upload workflow, family access. Confirm tools work before first comms.","2026-07-15","2026-09-10"],
-    ["Confirm facilities, maintenance & compliance readiness","Complete summer maintenance, room assignments, equipment (e.g., interactive whiteboards). Confirm health/safety & authority filings (ASL/SCIA); classrooms ready for day one.","2026-07-01","2026-09-11"],
+  ["Calendario e Operazioni", [
+    ["Pubblicare il calendario scolastico","Finalizzare e pubblicare date dei periodi, festività, finestre d'esame ed eventi chiave per i genitori. Allineare tra le scuole dove possibile.","2026-05-01","2026-06-30"],
+    ["Pianificare gite/residenziali e aprire le iscrizioni","Pianificare le gite (es. residenziale Lago di Bolsena) con prezzi sul budget, scadenze chiare, adeguato preavviso ai genitori e un processo per aggiungere nuovi partecipanti.","2026-05-15","2026-09-04"],
+    ["Confermare la logistica operativa","Definire orario, spazi, divise e materiali/libri per l'avvio. Confermare capienza e accordi con i fornitori.","2026-06-15","2026-09-11"],
+    ["Attivare il servizio scuolabus/trasporti","Confermare percorsi, capienza, prezzi; pubblicare il piano di pagamento e la scadenza della prima rata; riconciliare i bus effettivamente usati con l'RDA del fornitore.","2026-06-15","2026-09-11"],
+    ["Attivare il servizio mensa","Confermare fornitore, menù e quote mensa; definire i termini di pagamento; gestire i casi particolari (pasto da casa/esenzioni) coerentemente ai contratti.","2026-06-15","2026-09-11"],
+    ["Confermare l'erogazione di doposcuola, camp e club","Prima di pubblicare qualsiasi attività (doposcuola, camp autunnali/festivi, club), confermare copertura del personale ed economics così che ogni attività pubblicizzata sia erogabile.","2026-07-01","2026-09-18"],
+    ["Configurare il portale genitori e gli strumenti di comunicazione","Predisporre il portale genitori e il journal: cartelle attività/foto (gdrive), workflow di caricamento docenti, accesso famiglie. Verificare gli strumenti prima delle prime comunicazioni.","2026-07-15","2026-09-10"],
+    ["Confermare la readiness di strutture, manutenzione e conformità","Completare manutenzioni estive, assegnazione aule, attrezzature (es. monitor interattivi). Confermare adempimenti salute/sicurezza e autorizzativi (ASL/SCIA); aule pronte per il primo giorno.","2026-07-01","2026-09-11"],
   ]],
-  ["Communications & Growth", [
-    ["Plan family communications and social calendar","Set the back-to-school communications plan and social media calendar, incl. milestone posts (e.g., university acceptances), consistent across schools.","2026-06-01","2026-09-11"],
-    ["Advance strategic partnerships","Progress external partnerships/programs feeding the year (e.g., US exchange program): outline, timeline, contract/invoice, team intros.","2026-05-01","2026-09-30"],
+  ["Comunicazione e Sviluppo", [
+    ["Pianificare le comunicazioni alle famiglie e il calendario social","Definire il piano di comunicazione di rientro e il calendario social, inclusi post celebrativi (es. ammissioni universitarie), coerenti tra le scuole.","2026-06-01","2026-09-11"],
+    ["Sviluppare le partnership strategiche","Avanzare le partnership/programmi esterni che alimentano l'anno (es. programma di scambio USA): outline, timeline, contratto/fattura, presentazioni ai team.","2026-05-01","2026-09-30"],
   ]],
-  ["ICT & Digital Platforms", [
-    ["Create accounts and logins for new teachers","Set up accounts and usernames for all new teachers by 29 Aug so heads of department can onboard them and teachers can reach shared resources. Keep the new-teacher list updated (e.g. once the second Year 1 teacher signs).","2026-08-10","2026-08-29"],
-    ["Confirm class lists and prepare platform rosters","Use confirmed class lists (EY-Year 7, on the school drive from early July) to organise class and student accounts across platforms. The two Year 3 classes are confirmed end of August.","2026-07-01","2026-08-31"],
-    ["Set up Domus digital register","Load all class sections and teacher class/subject assignments into Domus - teacher, family and student (MHS) sides - ideally by 29 Aug for parent/teacher/office communication per AIS governance, and by 4 Sep at the latest for attendance registration.","2026-08-03","2026-09-04"],
-    ["Schedule Domus training for new teachers","If heads of department want it, schedule a Domus walkthrough with the ICT lead and/or Mr David between 29 Aug and 4 Sep; confirm and share the date by 29 Aug so departments can inform their new staff.","2026-08-17","2026-08-29"],
-    ["Set up Google Classroom - MHS (+ 23/24 archive)","Prepare MS/HS Google Classrooms for students and teachers/subjects, with an accessible prior-year archive to migrate resources into the new classes. Latest 6 Sep so students not on the Lago di Vico trip can reach revision resources.","2026-08-17","2026-09-06"],
-    ["Set up Google Classroom - Primary Year 4-6 (+ archive)","Prepare Year 4-6 Google Classrooms for students and reference teachers, with a prior-year archive to transfer resources into 2025/26 classes. Latest 13 Sep if teachers need revision resources available.","2026-08-24","2026-09-13"],
-    ["Configure Cool Easy Login (Cloudwise) badges and monitoring","Generate badges/QR codes for easy Chromebook login (EY-Year 6) by 13 Sep; have real-time Chromebook monitoring ready for MHS by 6 Sep and primary by 13 Sep; support teachers in keeping student dashboards organised.","2026-08-24","2026-09-13"],
-    ["Set up Seesaw (Reception-Year 3)","Configure Seesaw student and class-group accounts (nursery-Year 3) by 16 Sep and teacher accounts by 13 Sep; make it badge-accessible; provide family guides. EYFS/Year 1/Primary heads guide staff on use.","2026-08-24","2026-09-16"],
-    ["Set up Adapt (Collins) maths platform (Year 1-6)","Configure Adapt student, class-group and teacher accounts (Year 1-6) by 13 Sep for maths assignments and extra support; provide family guides; oversee user management.","2026-08-24","2026-09-13"],
-    ["Set up Raz-Kids reading platform (Year 1-6)","Configure Raz-Kids student, class-group and teacher accounts (Year 1-6) by 13 Sep for levelled weekly reading; provide family guides; oversee user management.","2026-08-24","2026-09-13"],
-    ["Produce family and new-teacher platform guides","Create basic first-login/use guides for families and new teachers across all platforms (Domus, Classroom, Seesaw, Adapt, Raz-Kids, Cool Easy Login) to ensure a smooth start for new families.","2026-08-15","2026-09-13"],
-    ["Plan Collins Adapt to Mathletics migration (mid-year)","When the first-year Collins subscription lapses, migrate classes and student-teachers back to Mathletics. The ICT lead advises heads of department on how to manage this mid-year migration smoothly.","2026-11-02","2027-01-30"],
-    ["Oversee ICT user management through the year","Supervise account/user management and correct functioning of all platforms (Google Workspace, Domus, Classroom, Seesaw, Adapt, Raz-Kids, Cool Easy Login) across the year, adjusting rosters as students and staff change.","2026-09-14","2027-06-12"],
+  ["ICT e Piattaforme Digitali", [
+    ["Creare account e credenziali per i nuovi docenti","Predisporre account e username per tutti i nuovi docenti entro il 29 ago affinché i capi dipartimento possano inserirli e i docenti accedano alle risorse condivise. Tenere aggiornata la lista dei nuovi docenti (es. una volta firmato il secondo docente di Year 1).","2026-08-10","2026-08-29"],
+    ["Confermare gli elenchi classi e preparare gli anagrafici piattaforme","Usare gli elenchi classe confermati (EY-Year 7, sul drive della scuola da inizio luglio) per organizzare gli account classe e studente sulle piattaforme. Le due classi di Year 3 sono confermate a fine agosto.","2026-07-01","2026-08-31"],
+    ["Configurare il registro elettronico Domus","Caricare tutte le sezioni e gli incarichi classe/materia dei docenti su Domus - lato docenti, famiglie e studenti (MHS) - idealmente entro il 29 ago per la comunicazione genitori/docenti/ufficio secondo la governance AIS, ed entro il 4 set al più tardi per la registrazione delle presenze.","2026-08-03","2026-09-04"],
+    ["Programmare la formazione Domus per i nuovi docenti","Se i capi dipartimento lo ritengono utile, programmare una sessione Domus con il responsabile ICT e/o il Sig. David tra il 29 ago e il 4 set; confermare e condividere la data entro il 29 ago affinché i dipartimenti informino i nuovi docenti.","2026-08-17","2026-08-29"],
+    ["Configurare Google Classroom - MHS (+ archivio 23/24)","Predisporre le Google Classroom MS/HS per studenti e docenti/materie, con un archivio dell'anno precedente accessibile per migrare le risorse nelle nuove classi. Entro il 6 set affinché gli studenti non in gita al Lago di Vico accedano alle risorse di ripasso.","2026-08-17","2026-09-06"],
+    ["Configurare Google Classroom - Primaria Year 4-6 (+ archivio)","Predisporre le Google Classroom di Year 4-6 per studenti e docenti di riferimento, con archivio dell'anno precedente per trasferire le risorse nelle classi 2025/26. Al più tardi 13 set se i docenti necessitano risorse di ripasso.","2026-08-24","2026-09-13"],
+    ["Configurare Cool Easy Login (Cloudwise): badge e monitoraggio","Generare badge/QR per l'accesso facile ai Chromebook (EY-Year 6) entro il 13 set; predisporre il monitoraggio in tempo reale dei Chromebook per MHS entro il 6 set e per la primaria entro il 13 set; supportare i docenti nel tenere organizzati i dashboard studenti.","2026-08-24","2026-09-13"],
+    ["Configurare Seesaw (Reception-Year 3)","Configurare account studente e gruppi classe Seesaw (infanzia-Year 3) entro il 16 set e gli account docenti entro il 13 set; renderlo accessibile con badge; fornire guide alle famiglie. I capi EYFS/Year 1/Primaria guidano il personale all'uso.","2026-08-24","2026-09-16"],
+    ["Configurare Adapt (Collins) - matematica (Year 1-6)","Configurare account studente, gruppi classe e docenti Adapt (Year 1-6) entro il 13 set per compiti di matematica e supporto extra; fornire guide alle famiglie; supervisionare la gestione utenti.","2026-08-24","2026-09-13"],
+    ["Configurare Raz-Kids - lettura (Year 1-6)","Configurare account studente, gruppi classe e docenti Raz-Kids (Year 1-6) entro il 13 set per la lettura settimanale per livelli; fornire guide alle famiglie; supervisionare la gestione utenti.","2026-08-24","2026-09-13"],
+    ["Produrre guide alle piattaforme per famiglie e nuovi docenti","Creare guide di base al primo accesso/uso per famiglie e nuovi docenti su tutte le piattaforme (Domus, Classroom, Seesaw, Adapt, Raz-Kids, Cool Easy Login) per un avvio agevole delle nuove famiglie.","2026-08-15","2026-09-13"],
+    ["Pianificare la migrazione Adapt (Collins) verso Mathletics (in corso d'anno)","Alla scadenza del primo anno di abbonamento Collins, migrare classi e studenti-docenti su Mathletics. Il responsabile ICT fornisce ai capi dipartimento indicazioni su come gestire al meglio la migrazione in corso d'anno.","2026-11-02","2027-01-30"],
+    ["Supervisionare la gestione utenti ICT durante l'anno","Supervisionare la gestione account/utenti e il corretto funzionamento di tutte le piattaforme (Google Workspace, Domus, Classroom, Seesaw, Adapt, Raz-Kids, Cool Easy Login) durante l'anno, aggiornando gli anagrafici al variare di studenti e personale.","2026-09-14","2027-06-12"],
   ]],
-  ["Review", [
-    ["Review checklist per school and assign owners/deadlines","Final check: walk the full list against each school, confirm nothing is missed, assign an owner and due date to every item.","2026-08-24","2026-09-12"],
+  ["IT - Infrastruttura e Sicurezza", [
+    ["Upgrade del sistema di videosorveglianza","Upgrade completo dell'attuale sistema di videosorveglianza; configurazione, test e collaudo degli apparati; verifica della corretta registrazione e conservazione delle immagini. ~1 settimana. Prerequisito: acquisto completato entro il 15 giu.","2026-07-06","2026-07-10"],
+    ["Sostituire i firewall e la sicurezza perimetrale","Sostituire gli attuali firewall, migrare le configurazioni esistenti, verificare le policy di sicurezza e testare connettività, VPN e servizi pubblicati. ~1 settimana. Da completare prima della scadenza licenze/noleggio del 15 set 2026. Prerequisito: acquisto completato entro il 15 giu.","2026-08-31","2026-09-08"],
+    ["Manutenzione dell'infrastruttura","Verifica generale di tutti gli apparati di rete; aggiornamento firmware; controllo delle configurazioni di sicurezza; verifica dei sistemi di backup; controllo di UPS e sistemi di continuità. ~5 giorni lavorativi.","2026-08-17","2026-08-21"],
+  ]],
+  ["IT - Rete e Wi-Fi", [
+    ["Manutenzione rete e Wi-Fi - Acorn","Manutenzione dei rack di rete, verifica dell'infrastruttura di backup, aggiornamento firmware degli apparati e verifica della copertura Wi-Fi e delle prestazioni della rete presso la sede Acorn. ~5 giorni lavorativi.","2026-08-24","2026-08-28"],
+    ["Installare nuovi access point Wi-Fi - San Francis","Acquisto e installazione di nuovi access point Wi-Fi; configurazione VLAN e SSID; test di copertura e roaming; verifica degli apparati di rete presenti a San Francis. ~1 giorno. Prerequisito: acquisto completato entro il 15 giu.","2026-08-25","2026-08-25"],
+  ]],
+  ["IT - Sistemi e Software", [
+    ["Rinnovare Google Workspace e verificare l'infrastruttura","Rinnovo delle licenze Google Workspace; verifica dell'infrastruttura Google; aggiornamento di gruppi, policy e unità organizzative; verifica delle procedure di sicurezza e backup.","2026-07-13","2026-07-24"],
+    ["Migrare gli account studenti su un sottodominio dedicato","Analisi della migrazione degli studenti verso un sottodominio dedicato; configurazione della nuova struttura organizzativa; eventuale migrazione degli account esistenti. ~1 settimana. Le tempistiche dipendono dalla disponibilità dei dati su corsi, classi e assegnazioni docenti.","2026-08-24","2026-09-04"],
+  ]],
+  ["IT - Registro Elettronico (Domus)", [
+    ["Configurare Domus per il nuovo anno - Acorn e San Francis","Verifica completa dell'infrastruttura Domus; creazione e configurazione del nuovo anno scolastico; importazione e verifica di studenti, docenti, classi, materie, gruppi e orari; verifica di permessi e utenze; controllo della corretta sincronizzazione dei dati. ~1 settimana. Subordinata alla disponibilità dei dati definitivi delle direzioni scolastiche.","2026-08-24","2026-09-04"],
+  ]],
+  ["IT - Hardware e Dotazioni", [
+    ["Completare gli acquisti hardware IT","Chiudere tutti gli acquisti IT entro il 15 giu - prerequisito per videosorveglianza, firewall, access point San Francis e nuove postazioni: kit upgrade videosorveglianza, firewall, access point Wi-Fi e 10 notebook (5 docenti, 5 amministrazione).","2026-05-25","2026-06-15"],
+    ["Distribuire le nuove postazioni (10 notebook)","Predisporre e distribuire 5 notebook per il personale docente e 5 per gli uffici amministrativi. Prerequisito: acquisto completato entro il 15 giu.","2026-07-20","2026-07-24"],
+    ["Manutenzione dei notebook docenti","Manutenzione e aggiornamento dei notebook docenti: verifica hardware, aggiornamento sistema operativo, patch di sicurezza e verifica di licenze software e configurazioni aziendali. ~3 giorni lavorativi.","2026-08-17","2026-08-19"],
+    ["Rinnovare i laboratori informatici - Acorn e San Francis","Manutenzione ordinaria e straordinaria delle postazioni; formattazione e reinstallazione completa dei PC di San Francis; aggiornamento software dei laboratori; configurazione degli applicativi didattici per il nuovo anno; implementazione di una soluzione antivirus centralizzata. ~5 giorni lavorativi.","2026-08-24","2026-08-28"],
+    ["Verifica generale delle dotazioni IT e inventario","Controllo dello stato di dischi, batterie e memoria; verifica delle prestazioni delle postazioni; aggiornamento dell'inventario hardware; verifica della conformità agli standard IT dell'Istituto. ~2 giorni lavorativi.","2026-09-01","2026-09-02"],
+    ["Manutenzione stampanti e dispositivi di stampa","Manutenzione delle stampanti di proprietà dell'Istituto: pulizia interna/esterna, aggiornamento firmware, verifica di stampa/scansione/rete, controllo dei materiali di consumo e dei kit di manutenzione, verifica connettività e identificazione preventiva dei componenti soggetti a usura. ~2 giorni lavorativi.","2026-08-19","2026-08-20"],
+    ["Verifica LIM e monitor interattivi","Verifica funzionale di tutte le LIM/monitor interattivi ad Acorn e San Francis: ripristino di fabbrica, aggiornamenti firmware/software, verifica di touch/audio/rete/condivisione schermo, controllo di HDMI/USB/LAN, verifica dell'integrazione con PC/notebook/sistemi di videoconferenza e identificazione preventiva delle anomalie. ~3 giorni lavorativi.","2026-08-31","2026-09-02"],
+    ["Audit del parco Chromebook e dei box di ricarica","Verifica completa del parco Chromebook: stato operativo, iscrizione alla console Google Workspace for Education, aggiornamento ChromeOS, verifica policy/OU, controllo funzionale di tastiera/touchpad/display/webcam/Wi-Fi, inventario dei caricatori nei box di ricarica, identificazione di dispositivi mancanti/danneggiati e predisposizione dei dispositivi per il nuovo anno. ~3 giorni lavorativi.","2026-09-07","2026-09-09"],
+  ]],
+  ["Revisione", [
+    ["Rivedere la checklist per scuola e assegnare responsabili/scadenze","Controllo finale: percorrere l'intera lista per ogni scuola, confermare che nulla sia mancante, assegnare un responsabile e una scadenza a ogni voce.","2026-08-24","2026-09-12"],
   ]],
 ];
 
@@ -221,7 +238,7 @@ let uidCounter = 0;
 function uid(){ return "t"+Date.now().toString(36)+(uidCounter++).toString(36); }
 function defaultTemplate(){
   return {
-    title:"Academic Year Launch — Operational Checklist",
+    title:"Avvio Anno Scolastico — Cronoprogramma Operativo",
     cats: DEFAULT_CATS.map(([name, items])=>({
       name,
       tasks: items.map(([title,desc,start,due])=>({id:uid(), title, desc, start, due}))
@@ -230,14 +247,14 @@ function defaultTemplate(){
 }
 
 // ---- storage ----
-const TPL_KEY = "ay-launch:template:v2";
+const TPL_KEY = "ay-launch:template:v5-it";
 let TPL = null;
 function loadTpl(){ try{ TPL = JSON.parse(localStorage.getItem(TPL_KEY)); }catch(e){ TPL=null; } if(!TPL||!TPL.cats) TPL = defaultTemplate(); }
 function saveTpl(){ localStorage.setItem(TPL_KEY, JSON.stringify(TPL)); }
 
 const aySel = document.getElementById("ay");
 ["2026/27","2027/28","2028/29"].forEach(y=>{const o=document.createElement("option");o.value=y;o.textContent=y;aySel.appendChild(o);});
-function startYear(){ return parseInt(aySel.value,10); }            // 2026/27 -> 2026
+function startYear(){ return parseInt(aySel.value,10); }
 function yearShift(){ return startYear() - BASE_YEAR; }
 
 function progKey(){ return "ay-launch:progress:"+aySel.value; }
@@ -257,70 +274,11 @@ function shiftISO(iso, years){
 function effStart(t){ const o=st(t.id).start; return o || shiftISO(t.start, yearShift()); }
 function effDue(t){ const o=st(t.id).due; return o || shiftISO(t.due, yearShift()); }
 function toDate(iso){ return iso? new Date(iso+"T00:00:00") : null; }
-function fmt(iso){ if(!iso) return "—"; const d=toDate(iso); return d.toLocaleDateString(undefined,{day:"numeric",month:"short"}); }
+function fmt(iso){ if(!iso) return "—"; const d=toDate(iso); return d.toLocaleDateString("it-IT",{day:"numeric",month:"short"}); }
 
-// First day anchor (display only). Default 14 Sep of the AY start year.
 const firstDayInput = document.getElementById("firstDay");
 function defaultFirstDay(){ return startYear()+"-09-14"; }
 function setFirstDayDefault(){ firstDayInput.value = (PROG.__firstDay) || defaultFirstDay(); }
-
-// ---- render LIST ----
-const list = document.getElementById("list");
-let focusId = null;
-function render(){
-  const q = document.getElementById("search").value.toLowerCase().trim();
-  const fS = document.getElementById("fSchool").value;
-  const fStatus = document.getElementById("fStatus").value;
-  list.innerHTML = "";
-  let runningNum = 0;
-
-  TPL.cats.forEach((cat, ci)=>{
-    const visible = cat.tasks.filter(t=>matches(t,q,fS,fStatus));
-    const sec = document.createElement("section"); sec.className="cat";
-    const head=document.createElement("div"); head.className="cathead";
-    head.innerHTML = `<h2 contenteditable="true" spellcheck="false" data-catname="${ci}" data-ph="Section name">${escapeHtml(cat.name)}</h2>`;
-    sec.appendChild(head);
-
-    cat.tasks.forEach(t=>{
-      runningNum++;
-      if(!visible.includes(t)) return;
-      const s = st(t.id);
-      const allDone = SCHOOLS.every(x=>s.done[x.id]);
-      const el=document.createElement("div");
-      el.className="task"+(allDone?" done":"");
-      el.innerHTML = `
-        <div class="tk-main">
-          <div class="tk-titlewrap">
-            <span class="num">${runningNum}</span>
-            <div class="tk-title" contenteditable="true" spellcheck="false" data-edit="title" data-id="${t.id}" data-ph="Task title">${escapeHtml(t.title)}</div>
-            <button class="del" data-del="${t.id}" title="Delete task">×</button>
-          </div>
-          <div class="tk-desc" contenteditable="true" spellcheck="false" data-edit="desc" data-id="${t.id}" data-ph="Add a description…">${escapeHtml(t.desc)}</div>
-          <div class="meta">
-            <label>Start</label><input type="date" data-start="${t.id}" value="${effStart(t)}" />
-            <label>Due</label><input type="date" data-due="${t.id}" value="${effDue(t)}" />
-            <label>Owner</label><input type="text" data-owner="${t.id}" value="${escapeAttr(s.owner)}" placeholder="name" />
-          </div>
-        </div>
-        <div class="schools">
-          ${SCHOOLS.map(x=>`
-            <label class="school">
-              <span class="sdot" style="background:${x.color}"></span>
-              <span class="nm">${x.name}</span>
-              <input type="checkbox" data-id="${t.id}" data-school="${x.id}" ${s.done[x.id]?"checked":""} />
-            </label>`).join("")}
-        </div>`;
-      sec.appendChild(el);
-    });
-    const add=document.createElement("button");
-    add.className="addtask"; add.dataset.addcat=ci; add.textContent="+ Add task";
-    sec.appendChild(add);
-    list.appendChild(sec);
-  });
-
-  updateProgress();
-  if(focusId){ const node=list.querySelector(`[data-edit="title"][data-id="${focusId}"]`); if(node){node.focus();selectAll(node);} focusId=null; }
-}
 
 function matches(t,q,fS,fStatus){
   if(q && !((t.title||"").toLowerCase().includes(q)||(t.desc||"").toLowerCase().includes(q))) return false;
@@ -331,81 +289,113 @@ function matches(t,q,fS,fStatus){
   return true;
 }
 
-// ---- render GANTT ----
-const gantt = document.getElementById("gantt");
-function renderGantt(){
+function escapeHtml(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function escapeAttr(s){ return (s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;"); }
+function selectAll(node){ const r=document.createRange(); r.selectNodeContents(node); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); }
+
+// ---- render CRONOPROGRAMMA (vista unica) ----
+const board = document.getElementById("board");
+let focusId = null;
+function render(){
   const q=document.getElementById("search").value.toLowerCase().trim();
   const fS=document.getElementById("fSchool").value;
   const fStatus=document.getElementById("fStatus").value;
 
+  // raccogli righe visibili con numerazione globale
   const rows=[]; let num=0;
-  TPL.cats.forEach(cat=>{
+  TPL.cats.forEach((cat,ci)=>{
     const items=[];
     cat.tasks.forEach(t=>{ num++; if(matches(t,q,fS,fStatus)) items.push({t,num}); });
-    if(items.length) rows.push({cat:cat.name, items});
+    rows.push({cat:cat.name, ci, items});
   });
 
-  // range
+  // intervallo temporale su tutte le attività visibili
   let min=Infinity,max=-Infinity;
   rows.forEach(r=>r.items.forEach(({t})=>{
     const a=toDate(effStart(t)), b=toDate(effDue(t));
-    if(a) min=Math.min(min,a.getTime()); if(b) max=Math.max(max,b.getTime());
-    if(a) max=Math.max(max,a.getTime()); if(b) min=Math.min(min,b.getTime());
+    [a,b].forEach(x=>{ if(x){ min=Math.min(min,x.getTime()); max=Math.max(max,x.getTime()); } });
   }));
-  if(!isFinite(min)||!isFinite(max)){ gantt.innerHTML=`<p class="ghint">No tasks match the current filter.</p>`; return; }
-  // pad a few days
-  min-=3*864e5; max+=3*864e5;
-  const span=max-min;
+  const hasRange=isFinite(min)&&isFinite(max);
+  if(hasRange){ min-=3*864e5; max+=3*864e5; }
+  const span=hasRange?(max-min):1;
   const pct=ms=>((ms-min)/span*100);
 
-  // months header
+  // header mesi
   let months="";
-  const d=new Date(min); d.setDate(1);
-  while(d.getTime()<=max){
-    const left=pct(d.getTime());
-    if(left>=-2) months+=`<div class="gmonth" style="left:${Math.max(0,left)}%">${d.toLocaleDateString(undefined,{month:"short",year:"2-digit"})}</div>`;
-    d.setMonth(d.getMonth()+1);
+  if(hasRange){
+    const d=new Date(min); d.setDate(1);
+    while(d.getTime()<=max){
+      const left=pct(d.getTime());
+      if(left>=-2) months+=`<div class="gmonth" style="left:${Math.max(0,left)}%">${d.toLocaleDateString("it-IT",{month:"short",year:"2-digit"})}</div>`;
+      d.setMonth(d.getMonth()+1);
+    }
   }
 
   const catColor={}; TPL.cats.forEach((c,i)=>catColor[c.name]=CAT_COLORS[i%CAT_COLORS.length]);
 
-  let body="";
+  let bodyHtml="";
   rows.forEach(r=>{
-    body+=`<div class="gcat">${escapeHtml(r.cat)}</div>`;
+    if(!r.items.length) return;
+    bodyHtml+=`<div class="gcat">${escapeHtml(r.cat)}</div>`;
     r.items.forEach(({t,num})=>{
-      const a=toDate(effStart(t)), b=toDate(effDue(t));
-      if(!a||!b) return;
-      const L=pct(a.getTime()), W=Math.max(1.2, pct(b.getTime())-L);
-      const s=st(t.id); const done=SCHOOLS.filter(x=>s.done[x.id]).length; const fillPct=done/SCHOOLS.length*100;
+      const s=st(t.id);
+      const done=SCHOOLS.filter(x=>s.done[x.id]).length;
+      const allDone=done===SCHOOLS.length;
+      const fillPct=done/SCHOOLS.length*100;
       const col=catColor[r.cat];
-      const tip=`${t.title}\n${fmt(effStart(t))} → ${fmt(effDue(t))}${s.owner?("\nOwner: "+s.owner):""}\n${done}/3 schools done`;
-      body+=`<div class="grow">
-        <div class="glabel"><span class="num">${num}</span>${escapeHtml(t.title)}</div>
-        <div class="gtrack">
-          <div class="gbar" style="left:${L}%;width:${W}%;background:${col}" title="${escapeAttr(tip)}">
-            <div class="gfill" style="width:${fillPct}%"></div>
-            <span class="lbl">${fmt(effDue(t))}</span>
+      let barHtml="";
+      if(hasRange){
+        const a=toDate(effStart(t)), b=toDate(effDue(t));
+        if(a&&b){
+          const L=pct(a.getTime()), W=Math.max(1.2, pct(b.getTime())-L);
+          const tip=`${fmt(effStart(t))} → ${fmt(effDue(t))}`;
+          barHtml=`<div class="gbar" style="left:${L}%;width:${W}%;background:${col}" title="${escapeAttr(tip)}">
+              <div class="gfill" style="width:${fillPct}%"></div>
+              <span class="lbl">${fmt(effDue(t))}</span>
+            </div>`;
+        }
+      }
+      bodyHtml+=`<div class="grow${allDone?" done":""}">
+        <div class="gleft">
+          <div class="tk-titlewrap">
+            <span class="num">${num}</span>
+            <div class="tk-title" contenteditable="true" spellcheck="false" data-edit="title" data-id="${t.id}" data-ph="Titolo attività">${escapeHtml(t.title)}</div>
+            <button class="del" data-del="${t.id}" title="Elimina attività">×</button>
           </div>
-        </div></div>`;
+          <div class="tk-desc" contenteditable="true" spellcheck="false" data-edit="desc" data-id="${t.id}" data-ph="Aggiungi una descrizione…">${escapeHtml(t.desc)}</div>
+          <div class="rowmeta">
+            <div class="chips">
+              ${SCHOOLS.map(x=>`<label class="chip" title="${escapeAttr(x.name)}"><span class="sdot" style="background:${x.color}"></span><span>${x.short}</span><input type="checkbox" data-id="${t.id}" data-school="${x.id}" ${s.done[x.id]?"checked":""} /></label>`).join("")}
+            </div>
+            <div class="fields">
+              <label>Resp.</label><input type="text" data-owner="${t.id}" value="${escapeAttr(s.owner)}" placeholder="nome" />
+              <label>Inizio</label><input type="date" data-start="${t.id}" value="${effStart(t)}" />
+              <label>Scad.</label><input type="date" data-due="${t.id}" value="${effDue(t)}" />
+            </div>
+          </div>
+        </div>
+        <div class="gtrack">${barHtml}</div>
+      </div>`;
     });
+    bodyHtml+=`<button class="addtask" data-addcat="${r.ci}">+ Aggiungi attività</button>`;
   });
 
   const now=Date.now();
   let todayMark="";
-  if(now>=min&&now<=max) todayMark=`<div class="gtoday" style="left:calc(var(--lab) + (100% - var(--lab)) * ${pct(now)/100})"></div>`;
+  if(hasRange && now>=min && now<=max) todayMark=`<div class="gtoday" style="left:calc(var(--lab) + (100% - var(--lab)) * ${pct(now)/100})"></div>`;
 
-  gantt.innerHTML = `
-    <p class="ghint">Planned windows inferred from the first day of school (${fmt(firstDayInput.value)}). Bars fill as schools tick off; hover a bar for details.</p>
-    <div class="gscroll"><div class="gtable" style="--lab:230px;position:relative">
+  board.innerHTML = `<div class="gscroll"><div class="gtable" style="--lab:430px">
       <div class="gmonths">${months}</div>
-      ${body}
+      ${bodyHtml||'<p class="ghint" style="padding:14px">Nessuna attività corrisponde al filtro corrente.</p>'}
       ${todayMark}
-    </div></div>
-    <div class="glegend">${TPL.cats.map((c,i)=>`<span class="pill"><span class="dot" style="background:${CAT_COLORS[i%CAT_COLORS.length]}"></span>${escapeHtml(c.name)}</span>`).join("")}</div>`;
-}
+    </div></div>`;
 
-let VIEW="list";
-function draw(){ if(VIEW==="list"){ list.classList.remove("hidden"); gantt.classList.add("hidden"); render(); } else { render(); updateProgress(); list.classList.add("hidden"); gantt.classList.remove("hidden"); renderGantt(); } }
+  document.getElementById("hint").textContent = "Finestre pianificate stimate dal primo giorno di scuola ("+fmt(firstDayInput.value)+"). Le barre si riempiono man mano che le scuole spuntano.";
+  document.getElementById("legend").innerHTML = TPL.cats.map((c,i)=>`<span class="pill"><span class="dot" style="background:${CAT_COLORS[i%CAT_COLORS.length]}"></span>${escapeHtml(c.name)}</span>`).join("");
+
+  updateProgress();
+  if(focusId){ const node=board.querySelector(`[data-edit="title"][data-id="${focusId}"]`); if(node){node.focus();selectAll(node);} focusId=null; }
+}
 
 function updateProgress(){
   const allTasks=TPL.cats.flatMap(c=>c.tasks);
@@ -418,52 +408,36 @@ function updateProgress(){
   SCHOOLS.forEach(x=>{ document.getElementById("p-"+x.id).textContent=allTasks.length?Math.round(per[x.id]/allTasks.length*100)+"%":"0%"; });
 }
 
-function escapeHtml(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
-function escapeAttr(s){ return (s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;"); }
-function selectAll(node){ const r=document.createRange(); r.selectNodeContents(node); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); }
-
-// ---- events ----
+// ---- eventi ----
 document.getElementById("pageTitle").addEventListener("input", e=>{ TPL.title=e.target.textContent; saveTpl(); });
-list.addEventListener("input", e=>{
+board.addEventListener("input", e=>{
   const t=e.target;
   if(t.dataset.edit==="title"){ const k=findTask(t.dataset.id); if(k){k.title=t.textContent;saveTpl();} }
   else if(t.dataset.edit==="desc"){ const k=findTask(t.dataset.id); if(k){k.desc=t.textContent;saveTpl();} }
-  else if(t.dataset.catname!==undefined){ TPL.cats[+t.dataset.catname].name=t.textContent; saveTpl(); }
   else if(t.dataset.owner){ st(t.dataset.owner).owner=t.value; saveProg(); }
 });
-list.addEventListener("change", e=>{
+board.addEventListener("change", e=>{
   const cb=e.target.closest("input[type=checkbox]");
   if(cb){ st(cb.dataset.id).done[cb.dataset.school]=cb.checked; saveProg(); render(); return; }
-  const ds=e.target.closest("input[data-start]"); if(ds){ st(ds.dataset.start).start=ds.value; saveProg(); return; }
-  const dd=e.target.closest("input[data-due]"); if(dd){ st(dd.dataset.due).due=dd.value; saveProg(); }
+  const ds=e.target.closest("input[data-start]"); if(ds){ st(ds.dataset.start).start=ds.value; saveProg(); render(); return; }
+  const dd=e.target.closest("input[data-due]"); if(dd){ st(dd.dataset.due).due=dd.value; saveProg(); render(); }
 });
-list.addEventListener("click", e=>{
+board.addEventListener("click", e=>{
   const del=e.target.closest("[data-del]");
   if(del){ const id=del.dataset.del; const k=findTask(id);
-    if(confirm("Delete this task?\n\n"+(k?k.title:""))){ TPL.cats.forEach(c=>c.tasks=c.tasks.filter(x=>x.id!==id)); delete PROG[id]; saveTpl(); saveProg(); render(); } return; }
+    if(confirm("Eliminare questa attività?\n\n"+(k?k.title:""))){ TPL.cats.forEach(c=>c.tasks=c.tasks.filter(x=>x.id!==id)); delete PROG[id]; saveTpl(); saveProg(); render(); } return; }
   const add=e.target.closest("[data-addcat]");
   if(add){ const ci=+add.dataset.addcat; const id=uid(); TPL.cats[ci].tasks.push({id,title:"",desc:"",start:BASE_YEAR+"-07-01",due:BASE_YEAR+"-09-01"}); saveTpl(); focusId=id; render(); }
 });
 
-document.getElementById("viewSeg").addEventListener("click", e=>{
-  const b=e.target.closest("button[data-view]"); if(!b) return;
-  [...e.currentTarget.children].forEach(x=>x.classList.toggle("active",x===b));
-  VIEW=b.dataset.view; draw();
-});
-["search","fSchool","fStatus"].forEach(id=>document.getElementById(id).addEventListener("input",draw));
-aySel.addEventListener("change", ()=>{ loadProg(); setFirstDayDefault(); draw(); });
-firstDayInput.addEventListener("change", ()=>{ PROG.__firstDay=firstDayInput.value; saveProg(); if(VIEW==="gantt") renderGantt(); });
+["search","fSchool","fStatus"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+aySel.addEventListener("change", ()=>{ loadProg(); setFirstDayDefault(); render(); });
+firstDayInput.addEventListener("change", ()=>{ PROG.__firstDay=firstDayInput.value; saveProg(); render(); });
 
-document.getElementById("resetBtn").addEventListener("click", ()=>{
-  if(confirm("Clear ticks, owners and date overrides for "+aySel.value+"? (Task edits stay; inferred dates return.)")){ const fd=PROG.__firstDay; PROG={}; if(fd)PROG.__firstDay=fd; saveProg(); draw(); }
-});
-document.getElementById("restoreBtn").addEventListener("click", ()=>{
-  if(confirm("Restore the default task list, titles and planned dates?")){ TPL=defaultTemplate(); saveTpl(); document.getElementById("pageTitle").textContent=TPL.title; draw(); }
-});
 document.getElementById("exportBtn").addEventListener("click", ()=>{
   const data=JSON.stringify({type:"ay-launch",ay:aySel.value,template:TPL,progress:PROG},null,2);
   const blob=new Blob([data],{type:"application/json"}); const a=document.createElement("a");
-  a.href=URL.createObjectURL(blob); a.download="ay-launch-"+aySel.value.replace("/","-")+".json"; a.click();
+  a.href=URL.createObjectURL(blob); a.download="avvio-as-"+aySel.value.replace("/","-")+".json"; a.click();
 });
 document.getElementById("importBtn").addEventListener("click",()=>document.getElementById("importFile").click());
 document.getElementById("importFile").addEventListener("change", e=>{
@@ -472,8 +446,8 @@ document.getElementById("importFile").addEventListener("change", e=>{
     if(d.template){TPL=d.template;saveTpl();}
     if(d.ay&&[...aySel.options].some(o=>o.value===d.ay)) aySel.value=d.ay;
     if(d.progress){PROG=d.progress;saveProg();} else if(d.state){PROG=d.state;saveProg();}
-    document.getElementById("pageTitle").textContent=TPL.title; setFirstDayDefault(); draw();
-  }catch(err){ alert("Could not read that file."); } };
+    document.getElementById("pageTitle").textContent=TPL.title; setFirstDayDefault(); render();
+  }catch(err){ alert("Impossibile leggere il file."); } };
   r.readAsText(f);
 });
 
@@ -482,7 +456,7 @@ loadTpl();
 document.getElementById("pageTitle").textContent=TPL.title;
 loadProg();
 setFirstDayDefault();
-draw();
+render();
 </script>
 </body>
 </html>
